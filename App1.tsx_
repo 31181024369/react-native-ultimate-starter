@@ -1,0 +1,74 @@
+import { StatusBar } from 'expo-status-bar';
+import { useState } from 'react';
+import { Button, FlatList, Keyboard, ScrollView, StyleSheet, Text, TextInput, TouchableWithoutFeedback, View } from 'react-native';
+import InputTodo from './components/todo/input.todo';
+import ListTodo from './components/todo/list.todo';
+import FlexBox from './components/todo/flexBox';
+
+
+
+
+export default function App() {
+
+  const [age, setAge] = useState(20);
+  const [person, setPerson] = useState<{
+    name: string;
+    age: number;
+  }>({
+    name: 'long',
+    age: 24
+  });
+  function randomInteger(min: number, max: number) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+  const [todoList, setTodoList] = useState<ITodo[]>([]);
+  const addTodo = (text: string) => {
+    const todo = { id: randomInteger(1, 100000), title: text }
+    setTodoList([...todoList, todo]);
+    //alert(todo.title);
+  }
+  const deleteTodo = (id: number) => {
+    const newTodo = todoList.filter(todo => todo.id != id);
+    setTodoList(newTodo);
+  }
+  return (
+    <FlexBox></FlexBox>
+    // <TouchableWithoutFeedback
+    //   onPress={() => Keyboard.dismiss()}>
+    //   <View style={styles.container}>
+    //     <InputTodo addTodo={addTodo}></InputTodo>
+    //     <ListTodo
+    //       todoList={todoList}
+    //       deleteTodo={deleteTodo}
+    //     ></ListTodo>
+
+    //     <StatusBar style="auto" />
+    //   </View >
+    // </TouchableWithoutFeedback>
+  );
+}
+
+const styles = StyleSheet.create({
+  todo: {
+    backgroundColor: "pink",
+    fontSize: 30,
+    marginBottom: 10,
+    padding: 15
+  },
+  test: {
+    fontSize: 60,
+    color: "green"
+  },
+  hoidanit: {
+    color: "red"
+  },
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    // alignItems: 'center',
+    // justifyContent: 'center',
+    paddingTop: 20,
+    paddingHorizontal: 10,
+    marginTop: 50
+  },
+});
