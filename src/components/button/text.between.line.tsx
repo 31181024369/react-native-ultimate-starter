@@ -19,7 +19,7 @@ const TextBetweenLine = (props: Iprops) => {
 
             </View>
             <Text style={{
-                color: "white",
+                color: "black",
                 top: 10,
                 position: "relative"
 
