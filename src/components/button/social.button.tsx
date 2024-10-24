@@ -13,7 +13,10 @@ const styles = StyleSheet.create({
 const SocialButton = () => {
     return (
         <View style={styles.welcomeBtn}>
-            <TextBetweenLine title="Đăng nhập với"></TextBetweenLine>
+            <TextBetweenLine
+                title="Đăng nhập với"
+                textColor="black"
+            ></TextBetweenLine>
             {/* <View style={{
             borderBottomWidth: 1,
             borderBottomColor: "red",

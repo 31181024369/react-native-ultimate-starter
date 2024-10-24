@@ -1,10 +1,11 @@
 import { Text, View } from "react-native"
 
 interface Iprops {
-    title: String
+    title: String,
+    textColor?: "white" | "black"
 }
 const TextBetweenLine = (props: Iprops) => {
-    const { title } = props;
+    const { title, textColor = "white" } = props;
     return (
         <View style={{
             flexDirection: "row",
@@ -19,7 +20,7 @@ const TextBetweenLine = (props: Iprops) => {
 
             </View>
             <Text style={{
-                color: "black",
+                color: textColor,
                 top: 10,
                 position: "relative"
 
